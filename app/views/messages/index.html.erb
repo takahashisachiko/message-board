@@ -1,19 +1,25 @@
-<div class="panel panel-default">
-  <div class="panel-heading">
-    メッセージ一覧
+  <div class="table-responsive">
+    <table class="table table-striped table-bordered">
+      <thead>
+        <tr>
+          <th class="mname">名前</th>
+          <th>内容</th>
+          <th class="mage">年齢</th>
+          <th class="medit">操作</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @messages.each do |message| %>
+        <tr>
+          <td class="mbody"><%= message.name %></td>
+          <td class="mbody"><%= message.body %></td>
+          <td><%= message.age %>歳</td>
+          <td><%= link_to "[修正]" , edit_message_path(message)  , {:class => "editbtn"}%><%= link_to "[削除]" , message , method: :delete, data: { confirm: '削除してもよろしいですか？' } %></td>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
   </div>
-
-  <div class="panel-body">
-    <% @messages.each do |message| %>
-      <span class="label label-info"><%= message.name %></span>
-        <%= message.body %>
-        (<%= link_to "edit" , edit_message_path(message) %>
-         <%= link_to "destroy" , message , method: :delete, data: { confirm: '削除してもよろしいですか？' } %>
-        )
-      <br>
-    <% end %>
-  </div>
-</div>
 
 <% #部分テンプレートを読み込んでいる %>
 <%= render 'form' %>

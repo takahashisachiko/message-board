@@ -7,8 +7,29 @@
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
   <style>
-    .glyphicon-user {padding-right: 5px;}
-    .panel-body {line-height: 1.8em;}
+    th {
+      background-color: #333;
+      color: white;
+      text-align: center;
+    }
+    td {
+      text-align: center;
+    }
+    th.mname {
+      width: 310px;
+    }
+    th.mage {
+      width: 80px;
+    }
+    th.medit {
+      width: 120px;
+    }
+    td.mbody {
+      text-align: left;
+    }
+    .editbtn {
+      padding-right: 10px;
+    }
   </style>
 </head>
 <body>
